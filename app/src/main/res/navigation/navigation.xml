@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/accueilFragment">
+    <fragment
+        android:id="@+id/accueilFragment"
+        android:name="com.equality.herforyou.AccueilFragment"
+        android:label="Accueil"
+        tools:layout="@layout/fragment_accueil" />
+    <fragment
+        android:id="@+id/safePlacesFragment"
+        android:name="com.equality.herforyou.SafePlacesFragment"
+        android:label="Safe Places"
+        tools:layout="@layout/fragment_safe_places" />
+    <fragment
+        android:id="@+id/SOSFragment"
+        android:name="com.equality.herforyou.SOSFragment"
+        android:label="SOS"
+        tools:layout="@layout/fragment_s_o_s" />
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="com.equality.herforyou.ContactsFragment"
+        android:label="Contacts"
+        tools:layout="@layout/fragment_contacts" />
+    <fragment
+        android:id="@+id/compteFragment"
+        android:name="com.equality.herforyou.CompteFragment"
+        android:label="Compte"
+        tools:layout="@layout/fragment_compte" />
+</navigation>
