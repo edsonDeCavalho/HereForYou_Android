@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/top_navigation_view"/>
     <fragment
+        android:padding="20dp"
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
