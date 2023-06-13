@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.RecyclerView
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,8 +24,14 @@ class ContactsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    //private lateinit var contactView: RecyclerView
+    //private lateinit var searchBar: SearchView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //contactView = findViewById(R.id.contactList)
+        //searchBar = findViewById(R.id.searchBar)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)

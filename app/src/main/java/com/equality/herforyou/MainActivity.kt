@@ -6,17 +6,24 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.appcompat.widget.SearchView
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.equality.herforyou.R
 import com.equality.herforyou.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private lateinit var navController: NavController
+
+
+    private lateinit var contactView: RecyclerView
+    private lateinit var searchBar: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +32,14 @@ class MainActivity : AppCompatActivity() {
          */
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
+
+        contactView = findViewById(R.id.contactList)
+        searchBar = findViewById(R.id.searchBar)
+
+        contactView.setHasFixedSize(true)
+        contactView.layoutManager = LinearLayoutManager(this)
+
+        addDataToList()
         setContentView(view)
 
         setSupportActionBar(binding.toolbar)
@@ -90,6 +105,10 @@ class MainActivity : AppCompatActivity() {
 //        }
 
     }
+    private fun addDataToList(){
+
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         var inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.top_navigation_view, menu)
