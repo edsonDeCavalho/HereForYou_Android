@@ -21,12 +21,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private lateinit var navController: NavController
 
-
-    private lateinit var contactView: RecyclerView
-    private lateinit var searchBar: SearchView
-
-    private var mList = ArrayList<ContactData>()
-    private lateinit var adapter: ContactAdapter
+//    private lateinit var contactView: RecyclerView
+//    private lateinit var searchBar: SearchView
+//
+//    private var mList = ArrayList<ContactData>()
+//    private lateinit var adapter: ContactAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,15 +35,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
 
-        contactView = findViewById(R.id.contactList)
-        searchBar = findViewById(R.id.searchBar)
-
-        contactView.setHasFixedSize(true)
-        contactView.layoutManager = LinearLayoutManager(this)
-
-        addDataToList()
-        adapter = ContactAdapter(mList)
-        contactView.adapter = adapter
+//        contactView = findViewById(R.id.contactList)
+//        searchBar = findViewById(R.id.searchBar)
+//
+//        contactView.setHasFixedSize(true)
+//        contactView.layoutManager = LinearLayoutManager(this)
+//
+//        addDataToList()
+//        adapter = ContactAdapter(mList)
+//        contactView.adapter = adapter
 
         setContentView(view)
 
@@ -111,14 +110,14 @@ class MainActivity : AppCompatActivity() {
 //        }
 
     }
-    private fun addDataToList() {
-        mList.add(ContactData(3919, "Violences Femmes Info", "Écoute, information et Orientation" ))
-        mList.add(ContactData(17, "Police et Gendarmerie", "France" ))
-        mList.add(ContactData(112, "Police et Gendarmerie", "Union européenne" ))
-        mList.add(ContactData(114, "Remplacement du 15, 17 et 18", "Pour les personnes sourdes, malentendantes, aphasiques et dysphasiques" ))
-        mList.add(ContactData(15, "Urgences Médicales (Samu)", "France" ))
-        mList.add(ContactData(18, "Pompiers", "France" ))
-    }
+//    private fun addDataToList() {
+//        mList.add(ContactData(3919, "Violences Femmes Info", "Écoute, information et Orientation" ))
+//        mList.add(ContactData(17, "Police et Gendarmerie", "France" ))
+//        mList.add(ContactData(112, "Police et Gendarmerie", "Union européenne" ))
+//        mList.add(ContactData(114, "Remplacement du 15, 17 et 18", "Pour les personnes sourdes, malentendantes, aphasiques et dysphasiques" ))
+//        mList.add(ContactData(15, "Urgences Médicales (Samu)", "France" ))
+//        mList.add(ContactData(18, "Pompiers", "France" ))
+//    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         var inflater: MenuInflater = menuInflater

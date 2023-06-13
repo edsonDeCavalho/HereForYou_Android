@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -24,13 +25,21 @@ class ContactsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    //private lateinit var contactView: RecyclerView
-    //private lateinit var searchBar: SearchView
+    private lateinit var contactView: RecyclerView
+    private lateinit var searchBar: SearchView
+
+    private var mList = ArrayList<ContactData>()
+    private lateinit var adapter: ContactAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //contactView = findViewById(R.id.contactList)
-        //searchBar = findViewById(R.id.searchBar)
+        //contactView.setHasFixedSize(true)
+        //contactView.layoutManager = LinearLayoutManager(this)
+
+        addDataToList()
+        adapter = ContactAdapter(mList)
+        contactView.adapter = adapter
 
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
@@ -38,12 +47,28 @@ class ContactsFragment : Fragment() {
         }
     }
 
+    private fun addDataToList() {
+        mList.add(ContactData(3919, "Violences Femmes Info", "Écoute, information et Orientation" ))
+        mList.add(ContactData(17, "Police et Gendarmerie", "France" ))
+        mList.add(ContactData(112, "Police et Gendarmerie", "Union européenne" ))
+        mList.add(ContactData(114, "Remplacement du 15, 17 et 18", "Pour les personnes sourdes, malentendantes, aphasiques et dysphasiques" ))
+        mList.add(ContactData(15, "Urgences Médicales (Samu)", "France" ))
+        mList.add(ContactData(18, "Pompiers", "France" ))
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View ?{
+        val myView = inflater.inflate(R.layout.fragment_contacts, container, false)
+        //contactView.layoutManager = LinearLayoutManager(activity)
+
+        contactView.layoutManager = LinearLayoutManager(context)
+        contactView = myView.findViewById(R.id.contactList)
+        searchBar = myView.findViewById(R.id.searchBar)
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contacts, container, false)
+        return myView
     }
 
     companion object {
