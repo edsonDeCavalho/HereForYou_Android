@@ -1,23 +1,19 @@
-package com.equality.herforyou
+package com.equality.herforyou.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.equality.herforyou.R
+import com.equality.herforyou.core.db.entity.ContactData
 
 class ContactAdapter(private var mList: List<ContactData>) : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 
-    inner class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val contactNumber: TextView = itemView.findViewById(R.id.phoneNumberOrName)
-        val contactName : TextView = itemView.findViewById(R.id.contactName)
-        val contactDescription : TextView = itemView.findViewById(R.id.contactDesc)
+     class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val nom_contact : TextView = itemView.findViewById(R.id.nom_contact)
+        val role_contact : TextView = itemView.findViewById(R.id.role_contact)
     }
-
-//    fun setFilteredList(mList: List<ContactData>){
-//        this.mList = mList
-//        notifyDataSetChanged()
-//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_contact, parent,false)
@@ -25,9 +21,10 @@ class ContactAdapter(private var mList: List<ContactData>) : RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
-        holder.contactNumber.text = mList[position].number.toString()
-        holder.contactName.text = mList[position].name
-        holder.contactDescription.text = mList[position].description
+
+        val contact : ContactData =mList[position]
+        holder.nom_contact.text = contact.name
+        holder.role_contact.text = contact.description
     }
 
     override fun getItemCount(): Int {

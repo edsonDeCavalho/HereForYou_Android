@@ -5,9 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.equality.herforyou.core.db.entity.ContactData
+import com.equality.herforyou.ui.adapter.ContactAdapter
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -25,69 +26,78 @@ class ContactsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private lateinit var contactView: RecyclerView
-    private lateinit var searchBar: SearchView
+    private lateinit var recyclerViewGenaral: RecyclerView
+    private lateinit var recyClerViewUrgence: RecyclerView
 
-    private var mList = ArrayList<ContactData>()
-    private lateinit var adapter: ContactAdapter
+
+    //private lateinit var searchBar: SearchView
+
+    private var listeDeContactsDeUrgence = ArrayList<ContactData>()
+    private var listeDeContactsGeneral = ArrayList<ContactData>()
+    private lateinit var adapteurCOntanct_Urgence: ContactAdapter
+    private lateinit var adapterConrtact_General: ContactAdapter
+
+    private lateinit var linearLayoutContanct_General :LinearLayoutManager
+    private lateinit var linearLayoutContanct_Urgence :LinearLayoutManager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //contactView.setHasFixedSize(true)
         //contactView.layoutManager = LinearLayoutManager(this)
-
-        addDataToList()
-        adapter = ContactAdapter(mList)
-        contactView.adapter = adapter
-
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     private fun addDataToList() {
-        mList.add(ContactData(3919, "Violences Femmes Info", "Écoute, information et Orientation" ))
-        mList.add(ContactData(17, "Police et Gendarmerie", "France" ))
-        mList.add(ContactData(112, "Police et Gendarmerie", "Union européenne" ))
-        mList.add(ContactData(114, "Remplacement du 15, 17 et 18", "Pour les personnes sourdes, malentendantes, aphasiques et dysphasiques" ))
-        mList.add(ContactData(15, "Urgences Médicales (Samu)", "France" ))
-        mList.add(ContactData(18, "Pompiers", "France" ))
+        listeDeContactsDeUrgence.add(ContactData(3919, "Violences Femmes Info", "Écoute, information et Orientation" ))
+        listeDeContactsDeUrgence.add(ContactData(17, "Police et Gendarmerie", "France" ))
+        listeDeContactsDeUrgence.add(ContactData(112, "Police et Gendarmerie", "Union européenne" ))
+        listeDeContactsDeUrgence.add(ContactData(114, "Remplacement du 15, 17 et 18", "Pour les personnes sourdes, malentendantes, aphasiques et dysphasiques" ))
+        listeDeContactsDeUrgence.add(ContactData(15, "Urgences Médicales (Samu)", "France" ))
+        listeDeContactsDeUrgence.add(ContactData(18, "Pompiers", "France" ))
+        listeDeContactsGeneral=listeDeContactsDeUrgence
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View ?{
-        val myView = inflater.inflate(R.layout.fragment_contacts, container, false)
+        val view = inflater.inflate(R.layout.fragment_contacts, container, false)
         //contactView.layoutManager = LinearLayoutManager(activity)
+        /**
+         * Contacts Genaral
+         */
+        addDataToList()
+        recyclerViewGenaral = view.findViewById(R.id.recyclerView_numero_general)
 
-        contactView.layoutManager = LinearLayoutManager(context)
-        contactView = myView.findViewById(R.id.contactList)
-        searchBar = myView.findViewById(R.id.searchBar)
+        linearLayoutContanct_General = LinearLayoutManager(activity)
+        recyclerViewGenaral.layoutManager=linearLayoutContanct_General
+
+        adapterConrtact_General= ContactAdapter(listeDeContactsGeneral)
+
+        recyclerViewGenaral.adapter=adapterConrtact_General
+
+        /**
+         * Contacts Urgence
+         */
+
+
+        recyClerViewUrgence = view.findViewById(R.id.resyclerView_numero_urgence)
+
+        linearLayoutContanct_Urgence = LinearLayoutManager(activity)
+        recyClerViewUrgence.layoutManager=linearLayoutContanct_Urgence
+        adapteurCOntanct_Urgence = ContactAdapter(listeDeContactsDeUrgence)
+
+        recyClerViewUrgence.adapter=adapteurCOntanct_Urgence
+
 
         // Inflate the layout for this fragment
-        return myView
+        return view
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ContactsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            ContactsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+            ContactsFragment()
     }
 }
