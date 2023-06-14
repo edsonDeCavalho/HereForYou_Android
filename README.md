@@ -1,4 +1,4 @@
-# Android Example Application
+# Safe Places Application
 
 Safe Haven is a powerful mobile application designed to assist survivors of domestic violence in their journey towards safety and support. Our app provides a safe and confidential platform for individuals experiencing domestic abuse to find secure locations and resources to escape their harmful situations.
 
