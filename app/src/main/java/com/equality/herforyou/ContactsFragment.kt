@@ -1,5 +1,6 @@
 package com.equality.herforyou
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -26,8 +27,9 @@ class ContactsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private lateinit var recyclerViewGenaral: RecyclerView
-    private lateinit var recyClerViewUrgence: RecyclerView
+    private lateinit var recyclerViewGeneral
+    : RecyclerView
+    private lateinit var recyclerViewUrgence: RecyclerView
 
 
     //private lateinit var searchBar: SearchView
@@ -58,6 +60,7 @@ class ContactsFragment : Fragment() {
         listeDeContactsGeneral=listeDeContactsDeUrgence
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -68,27 +71,27 @@ class ContactsFragment : Fragment() {
          * Contacts Genaral
          */
         addDataToList()
-        recyclerViewGenaral = view.findViewById(R.id.recyclerView_numero_general)
+        recyclerViewGeneral = view.findViewById(R.id.recyclerViewNumGeneral)
 
         linearLayoutContanct_General = LinearLayoutManager(activity)
-        recyclerViewGenaral.layoutManager=linearLayoutContanct_General
+        recyclerViewGeneral.layoutManager=linearLayoutContanct_General
 
         adapterConrtact_General= ContactAdapter(listeDeContactsGeneral)
 
-        recyclerViewGenaral.adapter=adapterConrtact_General
+        recyclerViewGeneral.adapter=adapterConrtact_General
 
         /**
          * Contacts Urgence
          */
 
 
-        recyClerViewUrgence = view.findViewById(R.id.resyclerView_numero_urgence)
+        recyclerViewUrgence = view.findViewById(R.id.recyclerViewNumUrgence)
 
         linearLayoutContanct_Urgence = LinearLayoutManager(activity)
-        recyClerViewUrgence.layoutManager=linearLayoutContanct_Urgence
+        recyclerViewUrgence.layoutManager=linearLayoutContanct_Urgence
         adapteurCOntanct_Urgence = ContactAdapter(listeDeContactsDeUrgence)
 
-        recyClerViewUrgence.adapter=adapteurCOntanct_Urgence
+        recyclerViewUrgence.adapter=adapteurCOntanct_Urgence
 
 
         // Inflate the layout for this fragment

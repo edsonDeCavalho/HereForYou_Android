@@ -8,4 +8,7 @@
     <string name="lieu_ou_role">Lieu ou rôle</string>
     <string name="nom_du_contact">Nom du contact</string>
     <string name="contact_button">...</string>
+    <string name="text_num_urgence">Vos numéros d\'urgences</string>
+    <string name="text_hint_searchview">Rechercher</string>
+    <string name="general">General</string>
 </resources>
