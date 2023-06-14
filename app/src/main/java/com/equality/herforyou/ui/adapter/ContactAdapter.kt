@@ -11,8 +11,9 @@ import com.equality.herforyou.core.db.entity.ContactData
 class ContactAdapter(private var mList: List<ContactData>) : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 
      class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nom_contact : TextView = itemView.findViewById(R.id.nom_contact)
-        val role_contact : TextView = itemView.findViewById(R.id.role_contact)
+         val numberOrNameContact : TextView = itemView.findViewById(R.id.phone_number_or_name)
+        val nomContact : TextView = itemView.findViewById(R.id.nom_contact)
+        val roleContact : TextView = itemView.findViewById(R.id.role_contact)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
@@ -23,8 +24,10 @@ class ContactAdapter(private var mList: List<ContactData>) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
 
         val contact : ContactData =mList[position]
-        holder.nom_contact.text = contact.name
-        holder.role_contact.text = contact.description
+
+        holder.numberOrNameContact.text = contact.number.toString()
+        holder.nomContact.text = contact.name
+        holder.roleContact.text = contact.description
     }
 
     override fun getItemCount(): Int {
