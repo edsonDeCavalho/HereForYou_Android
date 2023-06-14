@@ -25,7 +25,7 @@ class ContactAdapter(private var mList: List<ContactData>) : RecyclerView.Adapte
 
         val contact : ContactData =mList[position]
 
-        holder.numberOrNameContact.text = contact.number.toString()
+        holder.numberOrNameContact.text = contact.number
         holder.nomContact.text = contact.name
         holder.roleContact.text = contact.description
     }

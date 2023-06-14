@@ -34,8 +34,8 @@ class ContactsFragment : Fragment() {
 
     //private lateinit var searchBar: SearchView
 
-    private var listeDeContactsDeUrgence = ArrayList<ContactData>()
     private var listeDeContactsGeneral = ArrayList<ContactData>()
+    private var listeDeContactsDeUrgence = ArrayList<ContactData>()
     private lateinit var adapteurCOntanct_Urgence: ContactAdapter
     private lateinit var adapterConrtact_General: ContactAdapter
 
@@ -51,13 +51,17 @@ class ContactsFragment : Fragment() {
     }
 
     private fun addDataToList() {
-        listeDeContactsDeUrgence.add(ContactData(3919, "Violences Femmes Info", "Écoute, information et Orientation" ))
-        listeDeContactsDeUrgence.add(ContactData(17, "Police et Gendarmerie", "France" ))
-        listeDeContactsDeUrgence.add(ContactData(112, "Police et Gendarmerie", "Union européenne" ))
-        listeDeContactsDeUrgence.add(ContactData(114, "Remplacement du 15, 17 et 18", "Pour les personnes sourdes, malentendantes, aphasiques et dysphasiques" ))
-        listeDeContactsDeUrgence.add(ContactData(15, "Urgences Médicales (Samu)", "France" ))
-        listeDeContactsDeUrgence.add(ContactData(18, "Pompiers", "France" ))
-        listeDeContactsGeneral=listeDeContactsDeUrgence
+        listeDeContactsGeneral.add(ContactData("3919", "Violences Femmes Info", "Écoute, information et Orientation" ))
+        listeDeContactsGeneral.add(ContactData("17", "Police et Gendarmerie", "France" ))
+        listeDeContactsGeneral.add(ContactData("112", "Police et Gendarmerie", "Union européenne" ))
+        listeDeContactsGeneral.add(ContactData("114", "Remplacement du 15, 17 et 18", "Pour les personnes sourdes, malentendantes, aphasiques et dysphasiques" ))
+        listeDeContactsGeneral.add(ContactData("15", "Urgences Médicales (Samu)", "France" ))
+        listeDeContactsGeneral.add(ContactData("18", "Pompiers", "France" ))
+
+        listeDeContactsDeUrgence.add(ContactData("JS", "Julie Smith", "Mère" ))
+        listeDeContactsDeUrgence.add(ContactData("LR", "Lana Renault", "Sœur" ))
+        listeDeContactsDeUrgence.add(ContactData("ED", "Elliot Dunant", "Collègue" ))
+
     }
 
     @SuppressLint("MissingInflatedId")
@@ -66,7 +70,6 @@ class ContactsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View ?{
         val view = inflater.inflate(R.layout.fragment_contacts, container, false)
-        //contactView.layoutManager = LinearLayoutManager(activity)
         /**
          * Contacts Genaral
          */
@@ -83,7 +86,6 @@ class ContactsFragment : Fragment() {
         /**
          * Contacts Urgence
          */
-
 
         recyclerViewUrgence = view.findViewById(R.id.recyclerViewNumUrgence)
 
