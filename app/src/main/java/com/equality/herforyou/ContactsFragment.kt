@@ -59,6 +59,9 @@ class ContactsFragment : Fragment() {
         listeDeContactsGeneral.add(ContactData("18", "Pompiers", "France" ))
 
         listeDeContactsDeUrgence.add(ContactData("JS", "Julie Smith", "Mère" ))
+        listeDeContactsDeUrgence.add(ContactData("JS", "Julie Smith", "Mère" ))
+        listeDeContactsDeUrgence.add(ContactData("JS", "Julie Smith", "Mère" ))
+
         listeDeContactsDeUrgence.add(ContactData("LR", "Lana Renault", "Sœur" ))
         listeDeContactsDeUrgence.add(ContactData("ED", "Elliot Dunant", "Collègue" ))
 
