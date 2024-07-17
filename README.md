@@ -2,13 +2,6 @@
 
 Safe Haven is a powerful mobile application designed to assist survivors of domestic violence in their journey towards safety and support. Our app provides a safe and confidential platform for individuals experiencing domestic abuse to find secure locations and resources to escape their harmful situations.
 
-
-## Maintainers
-This project is mantained by:
-* [Edson De Carvalho](https://github.com/edsonDeCavalho)
-* [Dona Denkey Denkey](https://github.com/Dona-dky)
-* [Coralie Ouedraogo](https://github.com/coralieO)
-
 ## Installation
 Clone this repository and import into **Android Studio**
 ```bash
